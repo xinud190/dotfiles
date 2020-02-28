@@ -9,7 +9,7 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin()		" required, all plugins must appear after this line.
+call vundle#begin()     " required, all plugins must appear after this line.
 
 "Plugin 'arcticicestudio/nord-vim'                   " Nord Color Scheme
 Plugin 'gmarik/Vundle.vim'							" Vundle
@@ -24,8 +24,8 @@ Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'vimwiki/vimwiki'                            " Vim wiki
 Plugin 'ap/vim-css-color'                           " Color previews for CSS
 Plugin 'tpope/vim-surround'                         " Change surrounding marks
+Plugin 'dracula/vim',{'name':'dracula'}
 "Plugin 'klen/python-mode'                          " Python Mode
-Plugin 'kien/ctrlp.vim'                         " Change surrounding marks
 
 call vundle#end()		" required, all plugins must appear before this line.
 
@@ -36,6 +36,7 @@ filetype plugin indent on    " required
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" H
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
@@ -64,13 +65,13 @@ ino <Right> <Nop>
 " => Powerline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Powerline
-set rtp+=/usr/share/powerline/bindings/vim/
+set rtp+=/usr/local/lib/python3.6/dist-packages/powerline/bindings/vim
 
 " Always show statusline
 set laststatus=2
 
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
-" set t_Co=256
+set t_Co=256
 
 syntax on   
 set relativenumber
@@ -80,7 +81,7 @@ let g:Powerline_theme='long'
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='angr'
+let g:airline_theme='dracula'
 
 " Uncomment to prevent non-normal modes showing in powerline and below powerline.
 set noshowmode
@@ -110,7 +111,6 @@ let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Minimap
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -122,7 +122,7 @@ let g:minimap_toggle='<leader>mt'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" colorscheme nord
+colorscheme dracula
 hi LineNr ctermfg=242
 hi CursorLineNr ctermfg=15
 hi VertSplit ctermfg=8 ctermbg=0
@@ -146,7 +146,20 @@ set noswapfile
 
 let g:minimap_highlight='Visual'
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Xinud Mappings and bindings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" TAB Movement
+nnoremap tn     :tabnew<Space>
+
+nnoremap tk     :tabnext<CR>
+nnoremap tj     :tabprev<CR>
+
+nnoremap th     :tabfirst<CR>
+nnoremap tl     :tablast<CR>
+
+
 let g:python_highlight_all = 1
 syntax on
-
 
