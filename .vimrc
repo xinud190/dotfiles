@@ -2,7 +2,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle For Managing Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Test Commit  
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -159,6 +159,12 @@ nnoremap tj     :tabprev<CR>
 nnoremap th     :tabfirst<CR>
 nnoremap tl     :tablast<CR>
 
+set clipboard=unnamedplus
+
+" Copy Paste with System Buffer
+" Ensure GVIM is installed
+vnoremap <C-c>  "*y :let @+=@*<CR>
+map <C-V>  "+P
 
 let g:python_highlight_all = 1
 syntax on
