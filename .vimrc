@@ -5,7 +5,8 @@
 "  \ \ / / | '_ ` _ \| '__/ __|
 "   \ V /| | | | | | | | | (__ 
 "  (_)_/ |_|_| |_| |_|_|  \___|
-
+" 
+" David Beaupre
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -19,22 +20,30 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()     " required, all plugins must appear after this line.
+"{{ The Basics }}
+    Plugin 'gmarik/Vundle.vim'							" Vundle
+    Plugin 'vim-airline/vim-airline'					" Airline
+    Plugin 'vim-airline/vim-airline-themes'				" Airline Themes
 
-"Plugin 'arcticicestudio/nord-vim'                   " Nord Color Scheme
-Plugin 'gmarik/Vundle.vim'							" Vundle
-Plugin 'vim-airline/vim-airline'					" Airline
-Plugin 'vim-airline/vim-airline-themes'				" Airline Themes
-Plugin 'scrooloose/nerdtree'						" added nerdtree
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'vim-python/python-syntax'
-Plugin 'jreybert/vimagit'
-Plugin 'severin-lemaignan/vim-minimap'
-Plugin 'vimwiki/vimwiki'                            " Vim wiki
-Plugin 'ap/vim-css-color'                           " Color previews for CSS
-Plugin 'tpope/vim-surround'                         " Change surrounding marks
-Plugin 'dracula/vim',{'name':'dracula'}
-"Plugin 'klen/python-mode'                          " Python Mode
+"{{ File management }}
+    Plugin 'vifm/vifm.vim'                               " Vifm
+    Plugin 'scrooloose/nerdtree'                         " Nerdtree
+    Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'     " Highlighting Nerdtree
+    Plugin 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
+    Plugin 'junegunn/fzf'
+  
+"{{ Productivity }}
+    Plugin 'vimwiki/vimwiki'                             " VimWiki 
+    Plugin 'jreybert/vimagit'                            " Magit-like plugin for vim
+
+"{{ Tim Pope Plugins }}
+    Plugin 'tpope/vim-surround'                          " Change surrounding marks
+
+"{{ Syntax Highlighting and Colors }}
+    Plugin 'vim-python/python-syntax'
+    Plugin 'ap/vim-css-color'                           " Color previews for CSS
+    Plugin 'severin-lemaignan/vim-minimap'
+    Plugin 'dracula/vim',{'name':'dracula'}
 
 call vundle#end()		" required, all plugins must appear before this line.
 
@@ -45,12 +54,27 @@ filetype plugin indent on    " required
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" H
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set path+=**					" Searches current directory recursively.
+set wildmenu					" Display all matches when tab complete.
+set incsearch                   " Incremental search
+set nobackup                    " No auto backups
+set noswapfile                  " No swap
+set t_Co=256                    " Set if term supports 256 colors.
+set number relativenumber       " Display line numbers
+syntax enable
+let g:rehash256 = 1
+
+" Always show statusline
+set laststatus=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Remap Keys
@@ -76,15 +100,6 @@ ino <Right> <Nop>
 " Powerline
 set rtp+=/usr/local/lib/python3.6/dist-packages/powerline/bindings/vim
 
-" Always show statusline
-set laststatus=2
-
-" Use 256 colours (Use this setting only if your terminal supports 256 colours)
-set t_Co=256
-
-syntax on   
-set relativenumber
-let g:rehash256 = 1
 let g:Powerline_symbols='unicode'
 let g:Powerline_theme='long'
 
@@ -129,6 +144,15 @@ let g:minimap_close='<leader>mc'
 let g:minimap_toggle='<leader>mt'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Vifm
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <Leader>vv :Vifm<CR>
+map <Leader>vs :VsplitVifm<CR>
+map <Leader>sp :SplitVifm<CR>
+map <Leader>dv :DiffVifm<CR>
+map <Leader>tv :TabVifm<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme dracula
@@ -147,26 +171,26 @@ set mouse=nicr
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set splitbelow splitright
 
-set path+=**					" Searches current directory recursively.
-set wildmenu					" Display all matches when tab complete.
-set incsearch
-set nobackup
-set noswapfile
+" Remap splits navigation to just CTRL + hjkl
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 let g:minimap_highlight='Visual'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Xinud Mappings and bindings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " TAB Movement
 nnoremap tn     :tabnew<Space>
-
 nnoremap tk     :tabnext<CR>
 nnoremap tj     :tabprev<CR>
-
 nnoremap th     :tabfirst<CR>
 nnoremap tl     :tablast<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Personal Customizations
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <Leader>v :e ~/.vimrc<CR>
+map <Leader>V :tabnew ~/.vimrc<CR>
 
 set clipboard=unnamedplus
 
