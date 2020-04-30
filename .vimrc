@@ -22,6 +22,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()     " required, all plugins must appear after this line.
 "{{ The Basics }}
     Plugin 'gmarik/Vundle.vim'							" Vundle
+"    Plugin 'itchyny/lightline.vim'                       " Lightline statusbar
     Plugin 'vim-airline/vim-airline'					" Airline
     Plugin 'vim-airline/vim-airline-themes'				" Airline Themes
 
@@ -34,7 +35,7 @@ call vundle#begin()     " required, all plugins must appear after this line.
   
 "{{ Productivity }}
     Plugin 'vimwiki/vimwiki'                             " VimWiki 
-    Plugin 'jreybert/vimagit'                            " Magit-like plugin for vim
+    Plugin 'jreybert/vimagit'                            " Magit-like plugin 
 
 "{{ Tim Pope Plugins }}
     Plugin 'tpope/vim-surround'                          " Change surrounding marks
@@ -70,6 +71,9 @@ set nobackup                    " No auto backups
 set noswapfile                  " No swap
 set t_Co=256                    " Set if term supports 256 colors.
 set number relativenumber       " Display line numbers
+set nu rnu
+set colorcolumn=81
+set cursorline
 syntax enable
 let g:rehash256 = 1
 
@@ -95,10 +99,18 @@ ino <Left> <Nop>
 ino <Right> <Nop>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Status Line
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" The lightline.vim theme
+let g:lightline = {
+      \ 'colorscheme': 'darcula',
+      \ }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Powerline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Powerline
-set rtp+=/usr/local/lib/python3.6/dist-packages/powerline/bindings/vim
+" set rtp+=/usr/local/lib/python3.6/dist-packages/powerline/bindings/vim
 
 let g:Powerline_symbols='unicode'
 let g:Powerline_theme='long'
@@ -177,12 +189,20 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Make adjusing split sizes a bit more friendly
+noremap <silent> <C-Left> :vertical resize +3<CR>
+noremap <silent> <C-Right> :vertical resize -3<CR>
+noremap <silent> <C-Up> :resize +3<CR>
+noremap <silent> <C-Down> :resize -3<CR>
+
 let g:minimap_highlight='Visual'
 
 " TAB Movement
 nnoremap tn     :tabnew<Space>
 nnoremap tk     :tabnext<CR>
+nnoremap <TAB>  :tabnext<CR>
 nnoremap tj     :tabprev<CR>
+nnoremap <S-TAB> :tabprev<CR>
 nnoremap th     :tabfirst<CR>
 nnoremap tl     :tablast<CR>
 
@@ -191,6 +211,8 @@ nnoremap tl     :tablast<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <Leader>v :e ~/.vimrc<CR>
 map <Leader>V :tabnew ~/.vimrc<CR>
+map <Leader>U :source ~/.vimrc<CR>
+
 
 set clipboard=unnamedplus
 
