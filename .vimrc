@@ -214,7 +214,7 @@ map <Leader>V :tabnew ~/.vimrc<CR>
 map <Leader>U :source ~/.vimrc<CR>
 
 
-set clipboard+=unnamedplus
+set clipboard=unnamedplus
 
 " Copy Paste with System Buffer
 " Ensure GVIM is installed
