@@ -22,7 +22,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()     " required, all plugins must appear after this line.
 "{{ The Basics }}
     Plugin 'gmarik/Vundle.vim'							" Vundle
-"    Plugin 'itchyny/lightline.vim'                       " Lightline statusbar
     Plugin 'vim-airline/vim-airline'					" Airline
     Plugin 'vim-airline/vim-airline-themes'				" Airline Themes
 
@@ -35,7 +34,6 @@ call vundle#begin()     " required, all plugins must appear after this line.
   
 "{{ Productivity }}
     Plugin 'vimwiki/vimwiki'                             " VimWiki 
-"    Plugin 'jreybert/vimagit'                            " Magit-like plugin 
     Plugin 'mhinz/vim-signify'
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-rhubarb'
@@ -49,6 +47,7 @@ call vundle#begin()     " required, all plugins must appear after this line.
     Plugin 'ap/vim-css-color'                           " Color previews for CSS
     Plugin 'severin-lemaignan/vim-minimap'
     Plugin 'dracula/vim',{'name':'dracula'}
+    Plugin 'godlygeek/tabular'
 
 call vundle#end()		" required, all plugins must appear before this line.
 
@@ -116,12 +115,12 @@ let g:lightline = {
 " Powerline
 " set rtp+=/usr/local/lib/python3.6/dist-packages/powerline/bindings/vim
 
-let g:Powerline_symbols='unicode'
-let g:Powerline_theme='long'
+let g:Powerline_symbols                  = 'unicode'
+let g:Powerline_theme                    = 'long'
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme='dracula'
+let g:airline_powerline_fonts            = 1
+let g:airline_theme                      = 'dracula'
 
 " Uncomment to prevent non-normal modes showing in powerline and below powerline.
 set noshowmode
@@ -145,19 +144,20 @@ set tabstop=4
 " Uncomment to autostart the NERDTree
 " autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowExpandable  = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-let NERDTreeShowLineNumbers=1
-let NERDTreeShowHidden=1
-let NERDTreeMinimalUI = 1
+let NERDTreeShowLineNumbers       = 1
+let NERDTreeShowHidden            = 1
+let NERDTreeMinimalUI             = 1
+let NERDTreeWinPos                = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Minimap
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:minimap_show='<leader>mm'
-let g:minimap_update='<leader>mu'
-let g:minimap_close='<leader>mc'
-let g:minimap_toggle='<leader>mt'
+let g:minimap_show   = '<leader>mm'
+let g:minimap_update = '<leader>mu'
+let g:minimap_close  = '<leader>mc'
+let g:minimap_toggle = '<leader>mt'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Signify
@@ -170,7 +170,6 @@ let g:signify_sign_change            = '~'
 " I find the numbers disctracting
 " let g:signify_sign_show_count = 0
 " let g:signify_sign_show_text = 1
-
 
 " Jump though hunks
 nmap <leader>gj <plug>(signify-next-hunk)
