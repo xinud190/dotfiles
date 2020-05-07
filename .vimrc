@@ -35,7 +35,11 @@ call vundle#begin()     " required, all plugins must appear after this line.
   
 "{{ Productivity }}
     Plugin 'vimwiki/vimwiki'                             " VimWiki 
-    Plugin 'jreybert/vimagit'                            " Magit-like plugin 
+"    Plugin 'jreybert/vimagit'                            " Magit-like plugin 
+    Plugin 'mhinz/vim-signify'
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'tpope/vim-rhubarb'
+    Plugin 'junegunn/gv.vim'
 
 "{{ Tim Pope Plugins }}
     Plugin 'tpope/vim-surround'                          " Change surrounding marks
@@ -154,6 +158,30 @@ let g:minimap_show='<leader>mm'
 let g:minimap_update='<leader>mu'
 let g:minimap_close='<leader>mc'
 let g:minimap_toggle='<leader>mt'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Signify
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:signify_sign_add               = '+'
+let g:signify_sign_delete            = '_'
+let g:signify_sign_delete_first_line = '‾'
+let g:signify_sign_change            = '~'
+
+" I find the numbers disctracting
+" let g:signify_sign_show_count = 0
+" let g:signify_sign_show_text = 1
+
+
+" Jump though hunks
+nmap <leader>gj <plug>(signify-next-hunk)
+nmap <leader>gk <plug>(signify-prev-hunk)
+nmap <leader>gJ 9999<leader>gJ
+nmap <leader>gK 9999<leader>gk
+
+" If you like colors instead
+" highlight SignifySignAdd                  ctermbg=green                guibg=#00ff00
+" highlight SignifySignDelete ctermfg=black ctermbg=red    guifg=#ffffff guibg=#ff0000
+" highlight SignifySignChange ctermfg=black ctermbg=yellow guifg=#000000 guibg=#ffff00
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vifm
