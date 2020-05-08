@@ -225,13 +225,13 @@ noremap   <silent>   <C-Down>    :resize     -3<CR>
 let g:minimap_highlight='Visual'
 
 " TAB Movement
-nnoremap tn     :tabnew<Space>
-nnoremap tk     :tabnext<CR>
-nnoremap <TAB>  :tabnext<CR>
-nnoremap tj     :tabprev<CR>
+nnoremap tn      :tabnew<Space>
+nnoremap tk      :tabnext<CR>
+nnoremap <TAB>   :tabnext<CR>
+nnoremap tj      :tabprev<CR>
 nnoremap <S-TAB> :tabprev<CR>
-nnoremap th     :tabfirst<CR>
-nnoremap tl     :tablast<CR>
+nnoremap th      :tabfirst<CR>
+nnoremap tl      :tablast<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Personal Customizations
@@ -246,7 +246,7 @@ set clipboard=unnamedplus
 " Copy Paste with System Buffer
 " Ensure GVIM is installed
 vnoremap <C-c>  "*y :let @+=@*<CR>
-map <C-V>  "+P
+" map <C-V>  "+P
 
 let g:python_highlight_all = 1
 syntax on
