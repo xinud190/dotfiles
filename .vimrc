@@ -8,7 +8,7 @@
 " 
 " David Beaupre
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Just testing Comment
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle For Managing Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -38,6 +38,7 @@ call vundle#begin()     " required, all plugins must appear after this line.
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-rhubarb'
     Plugin 'junegunn/gv.vim'
+    Plugin 'liuchengxu/vim-which-key'
 
 "{{ Tim Pope Plugins }}
     Plugin 'tpope/vim-surround'                          " Change surrounding marks
@@ -150,6 +151,11 @@ let NERDTreeShowLineNumbers       = 1
 let NERDTreeShowHidden            = 1
 let NERDTreeMinimalUI             = 1
 let NERDTreeWinPos                = 1
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-which-key
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+source $HOME/.config/nvim/keys/which-key.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Minimap
